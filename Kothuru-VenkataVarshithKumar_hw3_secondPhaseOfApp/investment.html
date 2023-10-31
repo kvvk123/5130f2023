@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Investment Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <h1>Welcome to our Website</h1>
+    
+    <form id="investment-portfolio-form">
+        <h2>Investment Portfolio</h2>
+
+        <label for="stocks">Individual Stocks:</label>
+        <input type="text" id="stocks" name="stocks" placeholder="Enter individual stocks investments">
+
+        <label for="bonds">Bonds:</label>
+        <input type="text" id="bonds" name="bonds" placeholder="Enter bonds investments">
+
+        <label for="mutual-funds">Mutual Funds:</label>
+        <input type="text" id="mutual-funds" name="mutual-funds" placeholder="Enter mutual funds investments">
+
+        <label for="FIs">Family Investments:</label>
+        <input type="text" id="FIs" name="FIs" placeholder="Enter family investments">
+
+        <label for="real-estate">Real Estate:</label>
+        <input type="text" id="real-estate" name="real-estate" placeholder="Enter real estate investments">
+ 
+        <button type="button" onclick="submitInvestmentPortfolio()">Submit</button>
+    </form>
+
+    <h2>Investment Portfolio Summary</h2>
+    <div style="max-width: 400px;">
+        <canvas id="investment-chart"></canvas>
+    </div>
+    <!-- Add a paragraph to display the total investment -->
+    <p>Total Investment: <span id="total-investment">0</span></p>
+
+     <script>
+        function submitInvestmentPortfolio() {
+            const stocks = document.getElementById('stocks').value;
+            const bonds = document.getElementById('bonds').value;
+            const mutualFunds = document.getElementById('mutual-funds').value;
+            const FIs = document.getElementById('FIs').value;
+            const realEstate = document.getElementById('real-estate').value;
+
+            // Convert input to numbers and handle NaN values
+            const stocksCount = parseInt(stocks) || 0;
+            const bondsCount = parseInt(bonds) || 0;
+            const mutualFundsCount = parseInt(mutualFunds) || 0;
+            const etfsCount = parseInt(FIs) || 0;
+            const realEstateCount = parseInt(realEstate) || 0;
+
+            // Calculate the total number of investments
+            const totalInvestments =
+                stocksCount + bondsCount + mutualFundsCount +
+                etfsCount + realEstateCount;
+
+            // Calculate percentages
+            const percentages = [
+                (stocksCount / totalInvestments) * 100,
+                (bondsCount / totalInvestments) * 100,
+                (mutualFundsCount / totalInvestments) * 100,
+                (etfsCount / totalInvestments) * 100,
+                (realEstateCount / totalInvestments) * 100,
+            ];
+
+            // Create a data object for the pie chart
+            const data = {
+                labels: [
+                    'Individual Stocks',
+                    'Bonds',
+                    'Mutual Funds',
+                    'FIs',
+                    'Real Estate',
+                ],
+                datasets: [{
+                    data: percentages,
+                    backgroundColor: [
+                        '#FF6384', // Red
+                        '#36A2EB', // Blue
+                        '#FFCE56', // Yellow
+                        '#4BC0C0', // Green
+                        '#9966FF', // Purple
+                    ],
+                    }]
+            };
+
+            // Update the total investment display
+            document.getElementById('total-investment').textContent = totalInvestments;
+
+            // Create a pie chart
+            const ctx = document.getElementById('investment-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: data,
+            });
+        }
+        function showConfirmation() {
+            const confirmed = confirm("Are you sure you want to submit?");
+            if (confirmed) {
+                alert("Form submitted successfully!");
+            }
+        }
+    </script> 
+    
+      <!-- Add a Back to Details button -->
+    <input type="button" value="Back to Details" onclick="location.href='details.html'">
+
+    <!-- Add the Submit button with confirmation -->
+    <button type="button" onclick="showConfirmation()">Submit</button>
+
+    <br><br><br><br><br><br>
+    <footer>
+        <p>&copy; 2023 Venkata Varshith Kumar Kothuru</p>
+    </footer>
+</body>
+</html>

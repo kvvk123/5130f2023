@@ -1,0 +1,346 @@
+
+header {
+  background: #d7937e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 20%;
+  height: auto;
+}
+
+h1 {
+  font-style: italic;
+  text-align: center;
+  margin-right: 500px;
+}
+
+
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.button-grid a img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+/*Home*/
+body {
+  background: #7ae9ac;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.home {
+    float: left;
+    position: relative;
+    color: #f5ad8c;
+    opacity: 1;
+    width: 100%;
+    
+  }
+  .home a {
+    color: #a160ea;
+    text-decoration-style: dashed;
+    &:hover {
+      color: #e9967a;
+    }
+    &:active {color: #eceef3;} 
+  }
+  .home .content {
+    text-align: center;
+  }
+
+
+  /*About*/
+  
+  .about {
+    
+    color: #171616;
+
+  }
+  .about .content {
+    text-align: center;
+  }
+
+
+
+
+  /*Education*/
+  
+  .education {overflow: hidden;}
+  .education .content {
+    height: 55%;
+    text-align: center;
+  }
+  .education .col-big {
+    float: left;
+    position: relative;
+    width: 25%;
+    height: 20vw;
+    text-align: center;
+  }
+  .education img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: .1;
+    &:hover {opacity: 1;}
+  }
+  .education .content {
+    height: 55%;
+    text-align: center;
+  }
+  
+
+
+    /*Experience*/
+    .experience {overflow: hidden;}
+    .experience .content {
+      height: 55%;
+      text-align: center;
+    }
+    .experience .col-big {
+      float: left;
+      position: relative;
+      width: 25%;
+      height: 20vw;
+      text-align: center;
+    }
+    .experience img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: .1;
+      
+      &:hover {opacity: 1;}
+    }
+    .experience {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  .experience, .experience th, .experience td {
+      border: 1px solid rgb(137, 181, 203);
+  }
+
+  .experience th, .experience td {
+      padding: 8px;
+      text-align: left;
+  }
+    
+
+/*contact information*/
+  .media a {
+    display: block;
+    color: #7d7fea;
+    font-size: 20px;
+    text-decoration: none;
+    
+    &:hover {color: #333;}
+    &:active {color: #e08088;}
+  }
+  .media img {
+    width: 50px;
+    height: auto; 
+    margin: 10px; 
+}
+  .media .content {
+    height: 55%;
+    text-align: center;
+    color: #7d7fea;
+  }
+
+  footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/*webpage info*/
+.webpage {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.webpage img {
+  width: 20px; /* Adjust the size as needed */
+  height: auto;
+  margin-right: 5px;
+}
+
+
+/* Add this code to your existing styles.css file */
+
+.know-your-user .content form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.know-your-user label,
+.know-your-user input,
+.know-your-user select,
+.know-your-user textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.know-your-user textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.know-your-user input[type="file"] {
+  width: auto;
+}
+
+.know-your-user input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.know-your-user input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.know-your-user .form-row label {
+  font-weight: bold;
+}
+
+.nextsegment, .submit-button {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nextbutton {
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+
+
+/* Investment Form */
+#investment-portfolio-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#investment-portfolio-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#investment-portfolio-form label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+#investment-portfolio-form input[type="text"] {
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#investment-portfolio-form button {
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#investment-portfolio-form button:hover {
+  background-color: #45a049;
+}
+
+#investment-portfolio-form button:focus {
+  outline: none;
+}
+
+#investment-portfolio-form p {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #333;
+}
+
+#investment-portfolio-form span {
+  font-weight: bold;
+  color: #4caf50;
+}
+
+/* Investment Chart Section */
+
+#investment-chart {
+  margin-top: 20px;
+
+}
+
+#total-investment {
+  font-weight: bold;
+  font-size: 20px;
+  color: #d85856;
+  
+}
+

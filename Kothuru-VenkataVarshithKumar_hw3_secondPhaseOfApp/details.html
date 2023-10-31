@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - Know Your User</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="countries.js"></script>
+
+</head>
+<body>
+    <header>
+        <img src="your_picture.jpg" alt="Your Picture">
+        <h1>Know Your User</h1>
+    </header>
+
+    <section class="know-your-user">
+        <div class="content">
+            <form action="investment.html" id="detailsForm" method="post">
+                <!-- User Information -->
+                <div class="form-group"><br><br>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+
+                <div class="form-group"><br><br>
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890">
+                </div>                
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="emailId" name="email">
+                </div>
+
+                <!--
+                    <div class="form-group">
+                    <label for="currentLocation">Current Location:</label>
+                    <p><span id="currentLocation">Loading...</span></p>
+                    <button type="button" onclick="getUserLocation()">Detect Location</button>
+                </div> -->
+                <div class="form-group">
+                    <label for="currentLocation">Current Location:</label>
+                    <input type="text" id="currentLocation" name="currentLocation">
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="desiredLocation">Desired Location:</label>
+                    <select id="desiredLocation" name="desiredLocation">
+                        <option value="" disabled selected>Select country</option>
+                       
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="origin">Place of Origin:</label>
+                    <select id="origin" name="origin">
+                        <option value="" disabled selected>Select your origin</option>
+                        
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="familyOrigin">Family's Place of Origin:</label>
+                    <select id="familyOrigin" name="familyOrigin">
+                        <option value="" disabled selected>Select your family's origin</option>
+                        
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthPlace">Place of Birth:</label>
+                    <input type="text" id="birthPlace" name="birthPlace">
+                </div>
+
+                <!-- Additional Fields -->
+                <div class="form-group">
+                    <label for="education">Highest Education:</label>
+                    <input type="text" id="education" name="education">
+                </div>
+
+                <div class="form-group">
+                    <label for="occupation">Current Occupation:</label>
+                    <input type="text" id="occupation" name="occupation">
+                </div>
+
+                
+
+                <!-- Additional Facts About Me -->
+                <div class="form-group">
+                    <label for="awardsAchievements">Awards & Achievements:</label><br>
+                    <textarea id="awardsAchievements" name="awardsAchievements" rows="4" cols="50"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="languages">Languages:</label><br>
+                    <textarea id="languages" name="languages" rows="4" cols="50"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="hobbies">Hobbies:</label><br>
+                    <textarea id="hobbies" name="hobbies" rows="4" cols="50"></textarea>
+                </div>
+
+                <!-- Uploads & Additional Info Section -->
+
+                <div class="form-group">
+                    <label for="userResume">Upload My Resume/CV:</label>
+                    <input type="file" id="fileInput" accept=".pdf, .doc, .docx" />
+                </div>
+                <br><br><br><br><br><br><br>
+                <!-- Submit Button -->
+                <script>
+                    function showConfirmation() {
+                        const confirmed = confirm("Are you sure you want to submit?");
+                        if (confirmed) {
+                            alert("Form submitted successfully!");
+                        }
+                    }
+                </script>
+                <div class="submit-button">
+                    <input type="submit" value="Submit" onclick="showConfirmation()">
+                </div>
+            </form>
+            <div class="nextsegment">
+                <button id="nextbutton" onclick="location.href='investment.html'">Next Segment</button>
+
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br>
+    <footer>
+        <p>&copy; 2023 Venkata Varshith Kumar Kothuru</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+</body>
+</html>
