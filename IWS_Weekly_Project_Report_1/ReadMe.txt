@@ -17,26 +17,8 @@ Credit Card APR Reminders: Automated reminders for credit card APR close dates.
 
 Week 1 progress:
 
-In the first week of our project, we have achieved significant milestones in the development of our application. We are pleased to announce the successful creation of a user-friendly frontend webpage that provides access to various essential features:
+The HTML code creates a front-end for an expense tracker web app called "Coin Count." It provides a user-friendly interface for managing expenses, including a welcoming description, login and signup buttons, and a form for entering expenses. The app dynamically updates an expense list and total without page reloads, using JavaScript. CSS styling ensures a modern look, and media queries make it responsive. However, data storage and authentication require additional back-end development.
 
-Dashboard: Users can now access a comprehensive dashboard that provides an overview of key metrics and data.
-
-Transaction Viewing: Our platform enables users to view their transactions conveniently, offering an organized and accessible way to keep track of financial activities.
-
-Expense Tracking: We have implemented a feature that allows users to track their expenses efficiently. It provides the tools and functionality needed to manage spending effectively.
-
-Income Management: Users can now manage their income through our frontend webpage, making it simpler to monitor and plan financial resources.
-
-We are excited about the progress we've made and look forward to continuing to develop and enhance these features. Stay tuned for more updates on our project's development.
-
-
-Issues encountered :
-
-We have faced technical challenges in the development of the graph visualization feature, and we are actively working on refining our data representation to ensure both accuracy and a user-friendly experience.
-
-In terms of frontend-backend connectivity, we have encountered obstacles in achieving a seamless integration between these components. Our current focus is on improving communication protocols to create a fluid and responsive user interface.
-
-We are continuously working on these issues with targeted technical solutions and are dedicated to optimizing system performance and ensuring the reliability of our expense tracking functionalities.
 
 
 Technological Stack:
