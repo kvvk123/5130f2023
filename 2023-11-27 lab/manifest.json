@@ -1,0 +1,44 @@
+{
+    "short_name": "MyApp",
+    "name": "My Progressive Web App",
+    "icons": [
+      {
+        "src": "maskable.png",
+        "sizes": "1024x1024",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+
+      {
+        "src": "icon_big.png",
+        "sizes": "1024x1024",
+        "type": "image/png"
+      }
+    ],
+    
+  "screenshots": [
+    {
+      "src": "ss1.png",
+      "sizes": "1792x1024",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "ss2.png",
+      "sizes": "1024x1792",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+
+    "start_url": "Home.html",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#ffffff",
+    "orientation": "portrait-primary",
+    "lang": "en-US",
+    "dir": "ltr",
+    "prefer_related_applications": false
+  }
+  

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="theme-color" content="#fff">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js" defer></script>
+    <title>Sign In</title>
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #008cba;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f6b;
+        }
+
+        a {
+            color: #008cba;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((reg) => {
+                        console.log('Service Worker registered', reg);
+                    })
+                    .catch((err) => {
+                        console.log('Service Worker registration failed', err);
+                    });
+            });
+        }
+    </script>
+    <div class="container">
+        <h2>Sign In</h2>
+        <form id="signinForm">
+            Email: <input type="email" id="signinEmail" name="email" required><br>
+            Password: <input type="password" id="signinPassword" name="password" required><br>
+            <button type="submit">Sign In</button>
+        </form>
+        <a href="home.html">Back to Home</a>
+    </div>
+</body>
+</html>

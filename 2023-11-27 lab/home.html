@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="theme-color" content="#fff">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #555;
+            background-color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #008cba;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((reg) => {
+                        console.log('Service Worker registered', reg);
+                    })
+                    .catch((err) => {
+                        console.log('Service Worker registration failed', err);
+                    });
+            });
+        }
+
+        window.onload = function() {
+            fetch('http://ip-api.com/json')
+            .then(response => response.json())
+            .then(data => {
+                const userLocation = data.city;
+                const countryCode = data.countryCode;
+                document.getElementById('location').textContent = userLocation;
+    
+                // Fetching weather data
+                const weatherApiUrl = `https://api.weatherapi.com/v1/current.json?key=fc11e6005ff94cdf89522741231411&q=${userLocation}`;
+                fetch(weatherApiUrl)
+                .then(response => response.json())
+                .then(weatherData => {
+                    document.getElementById('weather').textContent = `${weatherData.current.condition.text}, ${weatherData.current.temp_c}°C`;
+    
+                    // Displaying local time
+                    const timezone = weatherData.location.tz_id;
+                    displayLocalTime(timezone);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    document.getElementById('weather').textContent = 'Unable to fetch weather data';
+                });
+    
+                // Displaying currency, language, and local facts
+                document.getElementById('currency').textContent = getCurrencyByCountry(countryCode);
+                document.getElementById('local-language').textContent = getLocalLanguageByCountry(countryCode);
+                document.getElementById('local-facts').textContent = getLocalFactsByCountry(countryCode);
+            })
+            .catch(error => {
+                console.error('Error fetching location data:', error);
+            });
+        };
+    
+        function displayLocalTime(timezone) {
+            try {
+                const currentTime = new Date().toLocaleTimeString('en-US', {timeZone: timezone});
+                document.getElementById('local-time').textContent = currentTime;
+            } catch (error) {
+                console.error('Error displaying local time:', error);
+                document.getElementById('local-time').textContent = 'Unable to display local time';
+            }
+        }
+    
+        function getCurrencyByCountry(countryCode) {
+            // Simplified implementation
+            return countryCode === 'US' ? 'USD' : 'EUR';
+        }
+    
+        function getLocalLanguageByCountry(countryCode) {
+            // Hypothetical implementation
+            const languages = {
+                'US': 'English',
+                'FR': 'French',
+                'DE': 'German',
+                // Add more countries and languages as needed
+            };
+            return languages[countryCode] || 'Unknown';
+        }
+    
+        function getLocalFactsByCountry(countryCode) {
+            // Hypothetical implementation
+            const facts = {
+                'US': 'Melting Pot Nation',
+                'FR': 'Famous for the Eiffel Tower',
+                'DE': 'Known for its beer culture',
+                // Add more countries and facts as needed
+            };
+            return facts[countryCode] || 'No facts available';
+        }
+
+    </script>
+    
+    <div>
+        <h1>Welcome to Our Web App</h1>
+        <nav>
+            <ul>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="guest.html">Continue as Guest</a></li>
+            </ul>
+        </nav>
+    </div>
+    <ul>
+        <div id="location-info">
+        <h3>Your Location: <span id="location"></span></h3>
+        <p>Weather: <span id="weather"></span></p>
+        <p>Local Time: <span id="local-time"></span></p>
+        <p>Currency: <span id="currency"></span></p>
+        <p>Local Language: <span id="local-language"></span></p>
+        <p>Local Facts: <span id="local-facts"></span></p>
+    </ul>
+        </div>
+</body>
+</html>
